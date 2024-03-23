@@ -1,0 +1,74 @@
+<script>
+
+	function equalsIgnoringCase(text, other) {
+		return text.localeCompare(other, undefined, { sensitivity: 'base' }) === 0;
+	}
+
+	function getComputerChoice() {
+		var rnd = Math.floor(Math.random() * 3) + 1;
+		if (rnd === 1) {
+			return "rock";
+		}
+		
+		if (rnd === 2) {
+			return "paper";
+		}
+		
+		if (rnd === 3) {
+			return "scissors";
+		}
+	}
+	
+	function playRound(playerSelection, computerSelection) {
+		if (equalsIgnoringCase(playerSelection, "rock") && equalsIgnoringCase(computerSelection, "rock")) {
+			return "Draw!.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "rock") && equalsIgnoringCase(computerSelection, "paper")) {
+			return "You lose! Paper beats Rock.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "rock") && equalsIgnoringCase(computerSelection, "scissors")) {
+			return "You win! Rock beats Scissors.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "paper") && equalsIgnoringCase(computerSelection, "rock")) {
+			return "You win! Paper beats Rock.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "paper") && equalsIgnoringCase(computerSelection, "paper")) {
+			return "Draw!.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "paper") && equalsIgnoringCase(computerSelection, "scissors")) {
+			return "You Lose! Scissors beats Papers.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "scissors") && equalsIgnoringCase(computerSelection, "rock")) {
+			return "You Lose! Rock beats Scissors.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "scissors") && equalsIgnoringCase(computerSelection, "paper")) {
+			return "You win! Rock beats Scissors.";
+		}
+		
+		if (equalsIgnoringCase(playerSelection, "scissors") && equalsIgnoringCase(computerSelection, "scissors")) {
+			return "Draw!.";
+		}
+	}
+	
+	function playGame() {
+		let person = prompt("Please enter one of the three choices (rock, paper, scissors): ");
+		console.log(playRound(person, getComputerChoice()));
+		person = prompt("Please enter one of the three choices (rock, paper, scissors): ");
+		console.log(playRound(person, getComputerChoice()));
+		person = prompt("Please enter one of the three choices (rock, paper, scissors): ");
+		console.log(playRound(person, getComputerChoice()));
+		person = prompt("Please enter one of the three choices (rock, paper, scissors): ");
+		console.log(playRound(person, getComputerChoice()));
+		person = prompt("Please enter one of the three choices (rock, paper, scissors): ");
+		console.log(playRound(person, getComputerChoice()));
+	}
+	
+	playGame();
+</script>
